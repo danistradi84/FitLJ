@@ -1,4 +1,4 @@
-"""Documentation about fitlj"""
+"""FitIJ program"""
 import logging
 
 
