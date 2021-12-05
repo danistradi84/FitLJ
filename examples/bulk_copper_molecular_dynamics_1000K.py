@@ -14,8 +14,8 @@ from asap3 import EMT
 # User-defined parameters
 supercell_size = [10, 10, 10]  # Supercell size
 temperature = 1000  # Temperature [K]
-number_of_steps = 100  # Total number of MD steps
-step_interval = 10  # Step interval to print the MD snapshot
+number_of_steps = 10000  # Total number of MD steps
+step_interval = 100  # Step interval to print the MD snapshot
 timestep = 0.5  # Timestep of the MD simulation
 trajectory_filename = 'bulk_copper_molecular_dynamics_1000K.traj'  # Name of the trajectory file
 database_filename = 'bulk_copper_molecular_dynamics_1000K.db'  # Name of the database file
