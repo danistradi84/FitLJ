@@ -12,13 +12,12 @@ from ase import units
 from asap3 import EMT
 
 # User-defined parameters
-supercell_size = [10, 10, 10]  # Supercell size
+supercell_size = [5, 5, 5]  # Supercell size
 temperature = 1000  # Temperature [K]
-number_of_steps = 10000  # Total number of MD steps
-step_interval = 100  # Step interval to print the MD snapshot
+number_of_steps = 5000  # Total number of MD steps
+step_interval = 50  # Step interval to print the MD snapshot
 timestep = 0.5  # Timestep of the MD simulation
-trajectory_filename = 'bulk_copper_molecular_dynamics_1000K.traj'  # Name of the trajectory file
-database_filename = 'bulk_copper_molecular_dynamics_1000K.db'  # Name of the database file
+output_filename = 'bulk_copper_molecular_dynamics'  # Global name of the output files
 
 # Set up an FCC crystal
 atoms = FaceCenteredCubic(directions=[[1, 0, 0], [0, 1, 0], [0, 0, 1]],
@@ -49,7 +48,7 @@ dyn = Langevin(atoms=atoms,
 def printenergy(a=atoms):
     epot = a.get_potential_energy() / len(a)   # Potential energy
     ekin = a.get_kinetic_energy() / len(a)   # Kinetic energy
-    instantaneous_temperature = ekin / 1.5 * units.kB  # Istantaneous temperature
+    instantaneous_temperature = ekin / (1.5 * units.kB)  # Istantaneous temperature
     total_energy = epot + ekin  # Total energy
     print(f"Energy per atom: Epot = {epot:.3f} eV Ekin = {ekin:.3f} eV (T = {instantaneous_temperature:.2f} K) Etot = {total_energy:.3f} eV")
 
@@ -59,7 +58,7 @@ def printenergy(a=atoms):
 dyn.attach(printenergy, interval=step_interval)
 
 # Save the positions of all atoms
-traj = Trajectory(trajectory_filename, 'w', atoms)
+traj = Trajectory(output_filename+'_'+str(temperature)+'K.traj', 'w', atoms)
 dyn.attach(traj.write, interval=step_interval)
 
 # Run the dynamics
@@ -67,9 +66,9 @@ printenergy()
 dyn.run(number_of_steps)
 
 # Read trajectory file
-trajectory = Trajectory(trajectory_filename)
+trajectory = Trajectory(output_filename+'_'+str(temperature)+'K.traj')
 
 # Dump trajectory snapshots in a database
-database = connect(database_filename)
+database = connect(output_filename+'_'+str(temperature)+'K.db')
 for snapshot in enumerate(trajectory):
     database.write(snapshot[1])

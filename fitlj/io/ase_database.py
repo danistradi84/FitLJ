@@ -1,4 +1,4 @@
-# Import classes from ASE
+import numpy
 from ase.db import connect
 
 
@@ -6,25 +6,33 @@ class AtomicSimulationEnvironmentDataBase:
     """Read a database created using ASE
 
 
-    Parameters:
+    Args:
+        database_filename (str): name of the ASE database
 
+    Example:
+        this class can be called with 'database.db' as argument using
 
-    database_filename: str
-       name of the ASE database (example: 'database.db')
+        >>> from fit.io.database import AtomicSimulationEnvironmentDataBase
+        >>> database = AtomicSimulationEnvironmentDataBase(database_filename='database.db')
+
     """
 
     def __init__(self, database_filename=None):
         self.database_filename = database_filename
 
-    def get_energies(self):
-        """Connect to database and get array with total energies"""
+    def connect_to_database(self):
+        """Connect to database"""
 
         # Connect to database
         database = connect(self.database_filename)
+        return database
 
-        # Get energies from atoms
-        atoms = [database.get_atoms(selection=i+1) for i in range(len(database))]
+    def get_energies(self):
+        """Get array with total energies"""
 
-        # Get energies from atoms
-        energies = [i.get_potential_energy() for i in atoms]
-        return energies
+        # Connect to database
+        database = self.connect_to_database()
+
+        # Get ground truth energies from atoms
+        ground_truth_energies = numpy.array([row.energy for row in database.select()])
+        return ground_truth_energies

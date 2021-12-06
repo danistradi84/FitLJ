@@ -1,5 +1,3 @@
-# Example based on https://wiki.fysik.dtu.dk/ase/tutorials/md/md.html
-
 # Import classes from ASE
 from ase.lattice.cubic import FaceCenteredCubic
 from ase.md.velocitydistribution import MaxwellBoltzmannDistribution
@@ -32,14 +30,14 @@ atoms.calc = EMT()
 
 # Set the momenta corresponding to a temperature T = 1000 K
 MaxwellBoltzmannDistribution(atoms=atoms,
-                             temp=temperature * units.kB
+                             temperature_K=temperature
                              )
 
 # Run MD at T = 1000 K the Langevin algorithm,
 # a time step of 5 fs and a friction coefficient to 0.02 atomic units.
 dyn = Langevin(atoms=atoms,
                timestep=timestep * units.fs,
-               temperature=temperature * units.kB,
+               temperature_K=temperature,
                friction=0.002
                )
 
@@ -49,7 +47,7 @@ dyn = Langevin(atoms=atoms,
 def printenergy(a=atoms):
     epot = a.get_potential_energy() / len(a)   # Potential energy
     ekin = a.get_kinetic_energy() / len(a)   # Kinetic energy
-    instantaneous_temperature = ekin / 1.5 * units.kB  # Istantaneous temperature
+    instantaneous_temperature = ekin / (1.5 * units.kB)  # Istantaneous temperature
     total_energy = epot + ekin  # Total energy
     print(f"Energy per atom: Epot = {epot:.3f} eV Ekin = {ekin:.3f} eV (T = {instantaneous_temperature:.2f} K) Etot = {total_energy:.3f} eV")
 
