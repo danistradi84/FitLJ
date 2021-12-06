@@ -52,7 +52,7 @@ def printenergy(a=atoms):
     total_energy = epot + ekin  # Total energy
     print(f"Energy per atom: Epot = {epot:.3f} eV Ekin = {ekin:.3f} eV (T = {instantaneous_temperature:.2f} K) Etot = {total_energy:.3f} eV")
 
-# Attach funciton and print energy
+# Attach function and print energy
 
 
 dyn.attach(printenergy, interval=step_interval)
