@@ -11,6 +11,8 @@ Welcome to fitlj's documentation!
   :caption: Contents:
 
   main/introduction 
+  main/installation
+  main/examples
 
 Indices and tables
 ==================
