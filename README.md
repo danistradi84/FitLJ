@@ -1,8 +1,6 @@
 ## How to use fitlj
 
-Program to fit a Lennard Jones potential
-
-The project setup is documented in [project_setup.md](project_setup.md). Feel free to remove this document (and/or the link to this document) if you don't need it.
+Program to fit a Lennard Jones potential using a database of atomic structures calculated using the Atomic Simulation Environment.
 
 ## Installation
 
@@ -13,6 +11,15 @@ git clone https://github.com/danistradi84/fitlj.git
 cd fitlj
 python3 -m pip install .
 ```
+
+## Dependencies 
+
+* Python (>=3.8)
+* Numpy
+* Scipy 
+* Atomic Simulation Environment 
+* Sphinx 
+* Sphinx-autoapi
 
 ## Documentation
 
