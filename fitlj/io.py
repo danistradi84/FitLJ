@@ -30,7 +30,7 @@ class AtomicSimulationEnvironmentDataBase:
         return database
 
     def get_energies(self):
-        """Connect to ASE databased and get array with total energies"""
+        """Connect to ASE database and get array with total energies"""
 
         # Connect to database
         database = self.connect_to_database()
