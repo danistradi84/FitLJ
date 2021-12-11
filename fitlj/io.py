@@ -5,15 +5,17 @@ from ase.db import connect
 class AtomicSimulationEnvironmentDataBase:
     """Read a database created using ASE
 
-
     Args:
-        database_filename (str): name of the ASE database
+        database_filename (str): name of the ASE database.
+
+    Returns:
+        str: SQLite3 database
 
     Example:
-        this class can be called with 'database.db' as argument using
 
-        >>> from fit.io.database import AtomicSimulationEnvironmentDataBase
-        >>> database = AtomicSimulationEnvironmentDataBase(database_filename='database.db')
+    >>> # Read an ASE database
+    >>> from fit.io.database import AtomicSimulationEnvironmentDataBase
+    >>> database = AtomicSimulationEnvironmentDataBase(database_filename='database.db')
 
     """
 
@@ -21,14 +23,14 @@ class AtomicSimulationEnvironmentDataBase:
         self.database_filename = database_filename
 
     def connect_to_database(self):
-        """Connect to database"""
+        """Connect to the ASE database"""
 
         # Connect to database
         database = connect(self.database_filename)
         return database
 
     def get_energies(self):
-        """Get array with total energies"""
+        """Connect to ASE databased and get array with total energies"""
 
         # Connect to database
         database = self.connect_to_database()

@@ -1,5 +1,5 @@
-from fitlj.fitting.fit_model import FitModel
-from fitlj.io.ase_database import AtomicSimulationEnvironmentDataBase
+from fitlj.fit_model import FitModel
+from fitlj.io import AtomicSimulationEnvironmentDataBase
 
 database = AtomicSimulationEnvironmentDataBase(database_filename='argon.db')
 database = database.connect_to_database()

@@ -7,12 +7,12 @@ Welcome to FitLJ's documentation!
 =================================
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 4
   :caption: Contents:
 
-  main/introduction 
-  main/installation
-  main/examples
+  introduction/introduction 
+  installation/installation
+  tutorials/tutorials
 
 Indices and tables
 ==================

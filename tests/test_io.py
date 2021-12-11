@@ -1,5 +1,5 @@
 """Test for the ase_database.py module"""
-from fitlj.io.ase_database import AtomicSimulationEnvironmentDataBase
+from fitlj.io import AtomicSimulationEnvironmentDataBase
 
 
 def test_get_energies():

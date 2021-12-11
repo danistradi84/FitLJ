@@ -86,4 +86,5 @@ intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
                        # 'pandas': ('http://pandas.pydata.org/docs/', None),
                        }
 
+# Use numbered figures in Sphinx HTML documents 
 numfig=True
