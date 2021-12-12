@@ -8,7 +8,6 @@ Required dependencies
 * `numpy <https://numpy.org/>`_ 
 * `scipy <https://scipy.org/>`_ 
 * `ase <https://wiki.fysik.dtu.dk/ase/>`_ 
-* `asap <https://wiki.fysik.dtu.dk/asap>`_
 * `sphinx <https://www.sphinx-doc.org/en/master/>`_
 * `sphinx autoapi <https://sphinx-autoapi.readthedocs.io/en/latest/>`_
 
@@ -32,7 +31,7 @@ Then, install the required packages:
 .. code-block:: bash 
    :linenos:
 
-   >>> conda -c install conda-forge numpy scipy ase asap sphinx sphinx-autoapi
+   >>> conda -c install conda-forge numpy scipy ase sphinx sphinx-autoapi
 
 Installing dependencies using pip
 *********************************
@@ -53,7 +52,6 @@ Then install the required packages:
    >>> pip install numpy 
    >>> pip install scipy 
    >>> pip install ase
-   >>> pip install asap 
    >>> pip install sphinx  
    >>> pip install sphinx-autoapi
 

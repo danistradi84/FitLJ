@@ -23,7 +23,7 @@ python3 -m pip install .
 
 ## Documentation
 
-Full documentation is aviailable at 
+Full documentation is aviailable at https://fitlj.readthedocs.io/en/latest/ 
 
 ## Contributing
 
